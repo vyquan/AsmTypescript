@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Pokemon Game</title>
+        <link rel="icon" href="img/155876.svg" type="image/svg">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+            background: #333;
+            line-height: 1.5;
+            font-family: 'Caveat', cursive;
+            color: #dbca80;
+            }
+            .sidebar{
+            background: #444;
+            border-radius: 10px;
+            border-top: 0.5px solid #cebf7b;
+            border-bottom: 0.5px solid #cebf7b;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            }
+            .pokemon{
+            width: 12rem auto;
+            background: #444;
+            padding: 1rem;
+            border-radius: 10px;
+            border-top: 0.5px solid #cebf7b;
+            border-bottom: 0.5px solid #cebf7b;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.2s ease-in-out all;
+            }
+            .pokemon:hover {
+            transform: scale(1.05);
+            }
+            
+        </style>
+    </head>
+    <body>       
+        <div class="container-fluid">
+            <!-- <h1 class=" text-center">Pokemon</h1> -->
+            <center><img src="./img/1280px-International_Pokémon_logo.svg.png" style="width: 20%;"> </center>
+            <div class="container">
+                <div class="col-6 offset-3 ">
+                    <form>
+                        <div class="mb-3">
+                            <label for="user_name" class="form-label">Tên người chơi</label>
+                            <input type="text" class="form-control rounded-pill" id="user_name" placeholder="Tên người chơi">
+                            <span id="login_error" class="form-text text-danger"></span>
+                        </div>
+                        <button id="login" class="rounded-pill btn btn-warning">Đăng nhập</button>
+                    </form>
+                </div>
+            </div>
+            <div id="GamePlay" class="container invisible">
+                <div class="row">
+                    <div class="col-2 sidebar" style="height: 670px;">
+                        <div class="mb-5 p-2">
+                            <span>Tên người chơi:</span>
+                            <h2 id="namePlayers"></h2>
+                        </div>
+                        <div class="mb-5 p-2">
+                            <span>Thời gian:</span>
+                            <h2 id="time"></h2>
+                        </div>
+                        <div class="mb-4 p-2">
+                            <span>Điểm:</span>
+                            <h2 id="point"></h2>
+                        </div>
+                        <div class="mb-4">
+                            <button id="cancelGame" class="rounded-pill btn btn-dark">Thoát</button>
+                            <button id="resetGame" class="rounded-pill btn btn-warning">Chơi lại</button>                           
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="row" id="mainInterface">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
