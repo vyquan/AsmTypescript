@@ -3,13 +3,15 @@ window.scrollTo(0, 0);
 const loginElement: HTMLElement = document.querySelector('#login');
 loginElement.addEventListener('click', async (e) => {
     e.preventDefault();
-    console.log('Login');
+    // console.log('Login');
     const user_name: string = loginElement.parentElement.querySelector('input').value;
-    console.log(user_name);
+    // console.log(user_name);
     const errorElement: HTMLElement = document.querySelector('#login_error');
-    if (user_name.trim().length < 3 || user_name.trim().length > 20) {
-        errorElement.textContent = 'Vui lòng nhập tên từ 3 - 20 kí tự.'
-        return;
+
+    if(user_name.trim().length < 3){
+        errorElement.textContent = 'Vui lòng nhập tối thiểu 3 kí tự !'
+    }else if(user_name.trim().length > 20){
+        errorElement.textContent = 'Vui lòng nhập tên không quá 20 kí tự !'      
     } else {    
         loginElement.parentElement.parentElement.classList.add('invisible');
         document.querySelector('#GamePlay').classList.remove('invisible');

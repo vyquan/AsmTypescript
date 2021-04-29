@@ -23,15 +23,14 @@ export default class GameController {
         await getPokemons.shuffing().then(pokemons => {
             this.total = pokemons.length;
             const mainInterfaceElement = document.getElementById('mainInterface')
-            const html = pokemons.map((pokemon) => {
+            const item = pokemons.map((pokemon) => {
                 return /*html*/ `
-                <div class="col-2 m-2 p1 text-center pokemon ">
-                    <div class="overlay"></div>
+                <div class="col-2 m-2 p1 overlay text-center pokemon ">                    
                     <span class="text-center invisible">$#${pokemon.id}</span>
                     <img src="${pokemon.image}" class="img-fluid" title="${pokemon.name}">
                 </div>`;
             }).join('')
-            mainInterfaceElement.innerHTML = html;
+            mainInterfaceElement.innerHTML = item;
         });
     }
     afterRender() {
@@ -39,7 +38,6 @@ export default class GameController {
         pokemonElements.forEach(btnPokemon => {
             btnPokemon.addEventListener("click", () => {
                 btnPokemon.classList.add('selected');
-                btnPokemon.querySelector('.overlay').classList.add('invisible')
                 this.handleLogic();
             });
         });
@@ -75,7 +73,6 @@ export default class GameController {
         selectedElement.forEach(btn => {
             btn.classList.add('bg-danger');
             setTimeout(() => {
-                btn.querySelector('.overlay').classList.remove('invisible')
                 btn.classList.remove('selected', 'bg-danger');
             }, 500);
         })
@@ -85,12 +82,12 @@ export default class GameController {
         if (this.select === this.total / 2) {
             this.status = true;
             clearInterval(this.interval);
-            const html = /*html */ `
+            const winGame = /*html */ `
             <div class="col-10">
-                <img style="width:950px; height:670px" src="https://i.pinimg.com/originals/4b/18/17/4b1817221d77d9ddf67119b2ed532a0b.gif" alt="">
+                <img class="endgame" src="https://i.pinimg.com/originals/4b/18/17/4b1817221d77d9ddf67119b2ed532a0b.gif" alt="">
             </div>
             `
-            document.querySelector('#mainInterface').innerHTML = html;
+            document.querySelector('#mainInterface').innerHTML = winGame;
         }
     }
     handlingTime(time = this.time, statusWin = this.status) {
@@ -103,12 +100,12 @@ export default class GameController {
             }
             if (time == 0) {
                 clearInterval(this.interval);
-                const html = /*html */ `
+                const overtime = /*html */ `
                     <div class="col-10">
-                    <img style="width:950px; height:670px" src="https://i.pinimg.com/originals/99/40/27/994027a48bb98e180e56a66265ccd922.gif" alt="">
+                    <img class="endgame" src="https://i.pinimg.com/originals/99/40/27/994027a48bb98e180e56a66265ccd922.gif" alt="">
                     </div>
                 `;
-                document.querySelector('#mainInterface').innerHTML = html;
+                document.querySelector('#mainInterface').innerHTML = overtime;
             }
         },1000)
     }
